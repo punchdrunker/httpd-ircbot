@@ -16,6 +16,12 @@ cd hubot-ircbot-example
 npm install
 ```
 
+## Add notice method to hubot-irc
+patch after install hubot-irc
+```
+patch -p0 < add_notice.patch
+```
+
 ## Modify IRC server settings
 runhubot.sh
 ```

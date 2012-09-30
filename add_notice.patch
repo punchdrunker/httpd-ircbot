@@ -1,0 +1,17 @@
+*** node_modules/hubot-irc/src/irc.coffee	2012-09-30 19:09:14.000000000 +0900
+--- node_modules/hubot-irc/src/irc.coffee 	2012-09-30 19:08:48.000000000 +0900
+***************
+*** 8,13 ****
+--- 8,19 ----
+  Irc     = require 'irc'
+  
+  class IrcBot extends Adapter
++   constructor: (@robot) ->
++     super @robot
++     @robot.notice = (user, strings...) ->
++       @adapter.notice user, strings...
++     @robot.Response = IrcResponse
++ 
+    send: (user, strings...) ->
+      for str in strings
+        if not str?
